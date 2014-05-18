@@ -39,10 +39,6 @@ class StreamClient extends AbstractClient
             throw new \InvalidArgumentException('No body expected for "GET" request.');
         }
 
-        if ($method === 'POST' && empty($requestBody)) {
-            throw new \InvalidArgumentException('Body expected for "POST" request.');
-        }
-
         if (!isset($extraHeaders['Content-Type']) && $method === 'POST' && is_array($requestBody)) {
             $extraHeaders['Content-Type'] = 'Content-Type: application/x-www-form-urlencoded';
         }
